@@ -1,1 +1,0 @@
-# Handling_technology_of_React
