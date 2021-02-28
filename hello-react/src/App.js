@@ -1,15 +1,8 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { Fragment } from "react";
+import React from "react";
+import Say from "./Say";
 
 function App() {
-  const name = "리액트";
-  return (
-    <div className="react">
-      {name}
-      <input></input>
-    </div>
-  );
+  return <Say></Say>;
 }
 
 export default App;
