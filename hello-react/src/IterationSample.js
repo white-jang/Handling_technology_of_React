@@ -8,7 +8,7 @@ const IterationSample = () => {
     { id: 4, text: "바람" },
   ]);
   const [inputText, setInputText] = useState("");
-  const [nextId, setNextId] = useState(5); // 새로운 항목을 추가할 때 사용할 id (5가 기본값?)
+  const [nextId, setNextId] = useState(5); // 새로운 항목을 추가할 때 사용할 id (5가 기본값)
 
   const onChange = (e) => setInputText(e.target.value);
   const onClick = () => {
