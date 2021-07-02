@@ -1,21 +1,27 @@
-import React, { useState, Suspense } from "react";
+import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-const SplitMe = React.lazy(() => import("./SplitMe"));
+import loadable from "@loadable/component";
+const SplitMe = loadable(() => import("./SplitMe"), {
+  fallback: <div>Loading...</div>,
+});
 
 function App() {
   const [visible, setVisible] = useState(false);
   const onClick = () => {
     setVisible(true);
   };
+  const onMouseOver = () => {
+    SplitMe.preload(); // onMouseOver 이벤트가 실행되면 컴포넌트를 미리 불러옴
+  };
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p onClick={onClick}>Hello, React!</p>
-        <Suspense fallback={<div>Loading...</div>}>
-          {visible && <SplitMe />}
-        </Suspense>
+        <p onClick={onClick} onMouseOver={onMouseOver}>
+          Hello, React!
+        </p>
+        {visible && <SplitMe />}
       </header>
     </div>
   );
